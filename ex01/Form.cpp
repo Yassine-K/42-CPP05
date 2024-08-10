@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 08:55:18 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 10:15:03 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 10:53:58 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ Form & Form::operator = (const Form &copy){
 Form::~Form(){
 }
 
-std::string Form::getName(){
+std::string Form::getName() const {
 	return name;
 }
 
-bool Form::getSig(){
+bool Form::getSig() const {
 	return signature;
 }
 
-int Form::getGradeSig(){
+int Form::getGradeSig() const {
 	return gradeS;
 }
 
-int Form::getGradeExe(){
+int Form::getGradeExe() const {
 	return gradeE;
 }
 
@@ -55,7 +55,6 @@ void Form::beSigned(Bureaucrat &b){
 		throw (GradeTooLowException());
 		}
 	signature = true;
-	// b.signForm(*this);
 }
 
 std::ostream & operator << (std::ostream &out, Form &f){

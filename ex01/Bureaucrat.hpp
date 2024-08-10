@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:12:54 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 09:50:22 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 12:08:03 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat{
 		int getGrade() const;
 		void gradeIncr();
 		void gradeDecr();
-		void signForm(Form f);
+		void signForm(Form *f);
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {
