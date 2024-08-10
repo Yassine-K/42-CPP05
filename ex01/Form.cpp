@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 08:55:18 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 10:53:58 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:07:00 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,12 @@ void Form::beSigned(Bureaucrat &b){
 std::ostream & operator << (std::ostream &out, Form &f){
 	std::cout << "Form name: " << f.getName() << " is signed: " << f.getSig() << " must have a grade of " << f.getGradeSig() << " to sign it and a grade of " << f.getGradeExe() << " to execute it" << std::endl;
 	return out;
+}
+
+const char* Form::GradeTooHighException::what() const throw() {
+	return "The form's grade is too High!";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+	return "The form's grade is too Low!";
 }

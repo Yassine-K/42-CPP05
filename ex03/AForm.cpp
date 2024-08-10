@@ -61,3 +61,15 @@ std::ostream & operator << (std::ostream &out, AForm &f){
 	std::cout << "AForm name: " << f.getName() << " is signed: " << f.getSig() << " must have a grade of " << f.getGradeSig() << " to sign it and a grade of " << f.getGradeExe() << " to execute it" << std::endl;
 	return out;
 }
+
+const char* AForm::GradeTooHighException::what() const throw() {
+	return "The form's grade is too High!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw() {
+	return "The form's grade is too Low!";
+}
+
+const char* AForm::NotSigned::what() const throw() {
+	return "The form's not signed!";
+}
