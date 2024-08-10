@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:15:59 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 12:11:16 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:03:57 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,12 @@ void Bureaucrat::executeForm(AForm const & form) {
 	catch(std::exception &e) {
 		std:: cout << name << " failed to execute " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return "The grade is too High!";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return "The grade is too Low!";
 }

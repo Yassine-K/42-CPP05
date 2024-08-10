@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:15:59 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 08:38:05 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:01:42 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,12 @@ void Bureaucrat::gradeDecr() {
 std::ostream & operator<<(std::ostream &out, const Bureaucrat &b) {
 	out << b.getName() <<", bureaucrat grade " << b.getGrade() << "." << std::endl;
 	return out;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return "The grade is too High!";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return "The grade is too Low!";
 }
