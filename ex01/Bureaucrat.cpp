@@ -6,13 +6,14 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:15:59 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 15:03:42 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:33:54 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <exception>
 #include <ostream>
+#include <stdexcept>
 
 Bureaucrat::Bureaucrat() {
 	
@@ -68,11 +69,13 @@ std::ostream & operator<<(std::ostream &out, const Bureaucrat &b) {
 
 void Bureaucrat::signForm(Form *f){
 	try {
+		if (!f)
+			throw(std::invalid_argument("Invalid form!"));
 		f->beSigned(*this);
 		std::cout << name << " signed " << f->getName() << std::endl;
 	}
 	catch(std::exception &e) {
-		std::cout << name << " couldn't sign " << f->getName() << " because " << e.what() << std::endl;
+		std::cout << name << " couldn't sign " << (f ? f->getName() : "") << " because " << e.what() << std::endl;
 	}
 }
 

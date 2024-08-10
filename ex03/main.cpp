@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:12:47 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 13:13:20 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:12:13 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 
 int main() {
+	int k = 5;
+	Intern user;
+	AForm *folder[k];
+	Bureaucrat br("Yassine" , 4 );
 	try {
-		int k = 5;
-		Intern user;
-		AForm *folder[k];
-		Bureaucrat br("Yassine" , 4 );
 		for (int i = 0; i < k; i++) {
 			if (!i)
 				folder[i] = user.makeForm("shrubbery creation", "Test" + std::to_string(i));
@@ -36,6 +36,9 @@ int main() {
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;		
+	}
+	for (int i = 0; i < k; i++) {
+		free(folder[i]);
 	}
 	return 0;
 }

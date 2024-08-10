@@ -6,7 +6,7 @@
 /*   By: ykhayri <ykhayri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 08:55:18 by ykhayri           #+#    #+#             */
-/*   Updated: 2024/08/10 15:07:00 by ykhayri          ###   ########.fr       */
+/*   Updated: 2024/08/10 15:15:44 by ykhayri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int Form::getGradeExe() const {
 void Form::beSigned(Bureaucrat &b){
 	if (b.getGrade() > gradeS){
 		throw (GradeTooLowException());
-		}
+	}
 	signature = true;
 }
 
